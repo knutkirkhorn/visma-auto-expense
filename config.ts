@@ -8,11 +8,18 @@ const environmentSchema = z.object({
 	BROWSER_HEADLESS: z.stringbool().default(true),
 	ALTIBOX_USERNAME: z.string().min(1),
 	ALTIBOX_PASSWORD: z.string().min(1),
-	ALTIBOX_LOGIN_URL: z.url().default('https://www.altibox.no/minesider/login'),
+	// ALTIBOX_LOGIN_URL: z.url().default('https://www.altibox.no/minesider/login'), // TODO: fix later
+	ALTIBOX_LOGIN_URL: z
+		.string()
+		.default('https://www.altibox.no/minesider/login'),
 	ALTIBOX_INVOICE_URL: z
-		.url()
+		.string()
 		.default('https://www.altibox.no/minesider/konto/faktura'),
-	VISMA_EMAIL: z.email().min(1),
+	// ALTIBOX_INVOICE_URL: z
+	// 	.url() // TODO: fix later
+	// 	.default('https://www.altibox.no/minesider/konto/faktura'),
+	// VISMA_EMAIL: z.email().min(1), // TODO: fix later
+	VISMA_EMAIL: z.string().min(1),
 	RESEND_API_KEY: z.string().min(1),
 	RESEND_EMAIL_FROM: z.string().min(1),
 	DOWNLOAD_DIR: z.string().default('./downloads'),
