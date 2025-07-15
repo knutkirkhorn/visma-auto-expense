@@ -1,12 +1,15 @@
-FROM node:20-alpine
+FROM node:20-slim
 
 # Set application directory
 WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-# Use npm ci to only install `dependencies` and not `devDependencies`
-RUN npm ci --only=production
+# Install dependencies
+RUN npm install
+
+# Install Playwright browsers with dependencies
+RUN npx playwright install chromium --with-deps
 
 COPY . .
 
