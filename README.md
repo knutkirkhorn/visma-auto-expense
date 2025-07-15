@@ -33,7 +33,7 @@ npx tsx index.ts
 docker build -t visma-auto-expense .
 
 # Run the container
-docker run --rm visma-auto-expense
+docker run --rm --env-file .env visma-auto-expense
 ```
 
 ### Schedule the cronjob
@@ -45,5 +45,5 @@ crontab -e
 Add the following line to the crontab to run it 16:37 the 15. every month and output logs to a file:
 
 ```sh
-37 16 15 * * docker run --rm visma-auto-expense >> /home/knut/visma-auto-expense/logs.txt
+37 16 15 * * docker run --rm --env-file /home/knut/visma-auto-expense/.env visma-auto-expense >> /home/knut/visma-auto-expense/logs.txt
 ```
