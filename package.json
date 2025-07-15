@@ -4,7 +4,9 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"start": "tsx index.ts"
+		"start": "tsx index.ts",
+		"lint": "eslint .",
+		"format:check": "prettier . --check"
 	},
 	"dependencies": {
 		"dotenv": "^17.2.0",

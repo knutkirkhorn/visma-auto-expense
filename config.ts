@@ -5,7 +5,7 @@ import {z} from 'zod';
 dotenv.config();
 
 const environmentSchema = z.object({
-	BROWSER_HEADLESS: z.stringbool().default(false),
+	BROWSER_HEADLESS: z.stringbool().default(true),
 	ALTIBOX_USERNAME: z.string().min(1),
 	ALTIBOX_PASSWORD: z.string().min(1),
 	ALTIBOX_LOGIN_URL: z.url().default('https://www.altibox.no/minesider/login'),
