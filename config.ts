@@ -23,6 +23,7 @@ const environmentSchema = z.object({
 	RESEND_API_KEY: z.string().min(1),
 	RESEND_EMAIL_FROM: z.string().min(1),
 	DOWNLOAD_DIR: z.string().default('./downloads'),
+	DISCORD_WEBHOOK_URL: z.string().optional(),
 });
 const parsedEnvironment = environmentSchema.parse(process.env);
 
@@ -42,4 +43,5 @@ export default {
 		emailFrom: parsedEnvironment.RESEND_EMAIL_FROM,
 	},
 	downloadDir: parsedEnvironment.DOWNLOAD_DIR,
+	discordWebhookUrl: parsedEnvironment.DISCORD_WEBHOOK_URL,
 };
