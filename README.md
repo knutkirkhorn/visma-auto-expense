@@ -29,7 +29,11 @@ npx tsx index.ts
 ### With Docker
 
 ```bash
+# Build the image
 docker build -t visma-auto-expense .
+
+# Run the container
+docker run --rm visma-auto-expense
 ```
 
 ### Schedule the cronjob
